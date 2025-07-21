@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shaik Sahil Kishwar | Full Stack Developer Portfolio">
+  <title>Shaik Sahil Kishwar - Full Stack Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <style>
+    :root {
+      --bg: rgba(17, 25, 40, 0.85);
+      --card: rgba(255, 255, 255, 0.05);
+      --primary: #7f5af0;
+      --primary-light: #9371ff;
+      --secondary: #e5e5e5;
+      --highlight: #3fb950;
+      --accent: #f85149;
+      --border: rgba(255, 255, 255, 0.1);
+      --text-dark: #0d1117;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Disable default cursor */
+    body, a, button {
+      cursor: none !important;
+    }
+
+    /* Sparkle Cursor Styles */
+    .sparkle-cursor {
+      position: fixed;
+      width: 24px;
+      height: 24px;
+      pointer-events: none;
+      z-index: 9999;
+      background: none;
+      left: 0;
+      top: 0;
+      transform: translate(-50%, -50%);
+    }
+    .sparkle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 2px 1px #7f5af0;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+    @keyframes sparkleAnim {
+      0% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(0.5); }
+    }
+
+    @keyframes dotTrailAnim {
+      0% { opacity: 1; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    /* Sprinkle effect for interactive elements */
+    .sprinkle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff 70%, #3fb950 100%);
+      box-shadow: 0 0 10px 3px #fff, 0 0 18px 6px #3fb950;
+      opacity: 1;
+      pointer-events: none;
+      animation: sprinkleAnim 0.6s cubic-bezier(0.4,0,0.2,1) forwards;
+    }
+    @keyframes sprinkleAnim {
+      0% { opacity: 1; transform: scale(1) translateY(0); filter: brightness(1.5); }
+      60% { opacity: 0.9; transform: scale(1.7) translateY(-12px); filter: brightness(2); }
+      100% { opacity: 0; transform: scale(0.7) translateY(-22px); filter: brightness(2.5); }
+    }
+
+    /* Particle Background */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Animated Gradient Text */
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Floating Animation */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Pulse Animation */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Glow Animation */
+    @keyframes glow {
+      0% { box-shadow: 0 0 5px rgba(127, 90, 240, 0.5); }
+      50% { box-shadow: 0 0 20px rgba(127, 90, 240, 0.8); }
+      100% { box-shadow: 0 0 5px rgba(127, 90, 240, 0.5); }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-light);
+      animation: glow 2s infinite;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(145deg, #0d1117, #1a1f2a);
+      color: var(--secondary);
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: rgba(255, 255, 255, 0.03);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(17, 25, 40, 0.95);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo i {
+      color: var(--primary);
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover i {
+      transform: rotate(15deg);
+    }
+
+    .logo span {
+      color: var(--highlight);
+    }
+
+    .open-to-work {
+      background: var(--highlight);
+      color: white;
+      padding: 0.2rem 0.5rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin-left: 0.5rem;
+      animation: pulse 2s infinite;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      bottom: -5px;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover:after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, var(--primary), var(--highlight), var(--accent));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: gradientShift 5s ease infinite;
+      line-height: 1.2;
+    }
+
+    .tagline {
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+    }
+
+    /* Floating Shapes */
+    .floating-shape {
+      position: absolute;
+      opacity: 0.1;
+      z-index: 1;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .shape-1 {
+      width: 200px;
+      height: 200px;
+      background: var(--primary);
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      top: 20%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .shape-2 {
+      width: 150px;
+      height: 150px;
+      background: var(--highlight);
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      bottom: 15%;
+      right: 10%;
+      animation-delay: 2s;
+    }
+
+    .shape-3 {
+      width: 100px;
+      height: 100px;
+      background: var(--accent);
+      border-radius: 50%;
+      top: 60%;
+      left: 30%;
+      animation-delay: 4s;
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    section {
+      padding: 6rem 0;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1, h2, h3 {
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      position: relative;
+      display: inline-block;
+    }
+
+    h2:after {
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), transparent);
+      bottom: -10px;
+      left: 0;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.5s ease;
+      backdrop-filter: blur(10px);
+      transform: perspective(1000px);
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(127, 90, 240, 0.1), transparent);
+      transition: 0.5s;
+    }
+
+    .card:hover:before {
+      left: 100%;
+    }
+
+    .card:hover {
+      transform: perspective(1000px) translateY(-10px) rotateX(5deg);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+      border-color: rgba(127, 90, 240, 0.3);
+    }
+
+    /* Buttons */
+    .btn {
+      background: linear-gradient(135deg, var(--highlight), var(--primary));
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1rem;
+      box-shadow: 0 0 18px rgba(63, 185, 80, 0.5);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border: none;
+      cursor: none;
+      z-index: 1;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(46, 160, 67, 0.3);
+    }
+
+    .btn:after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: rotate(45deg);
+      transition: all 0.3s ease;
+      z-index: -1;
+    }
+
+    .btn:hover:after {
+      left: 100%;
+    }
+
+    /* Grid Layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    /* Skill Bars */
+    .skill-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-bar {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--highlight));
+      width: 0;
+      transition: width 1.5s ease;
+      border-radius: 4px;
+    }
+
+    /* Project Tags */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .tag {
+      background: rgba(127, 90, 240, 0.2);
+      color: var(--primary);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* Form Styles */
+    form input, 
+    form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-top: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: white;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    form input:focus, 
+    form textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(127, 90, 240, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      position: relative;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .social-links a {
+      color: var(--secondary);
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .social-links a:hover {
+      color: var(--primary);
+      transform: translateY(-5px);
+      background: rgba(127, 90, 240, 0.1);
+    }
+
+    .back-to-top {
+      position: absolute;
+      right: 2rem;
+      top: -25px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(127, 90, 240, 0.3);
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(127, 90, 240, 0.4);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body, a, button {
+        cursor: default !important;
+      }
+      .sparkle-cursor {
+        display: none !important;
+      }
+      
+      nav {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .nav-links {
+        margin-top: 1rem;
+        gap: 1rem;
+      }
+
+      section {
+        padding: 4rem 0;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .back-to-top {
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+        top: -20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Orbit Cursor Element -->
+  <div class="sparkle-cursor">
+    <div class="main-dot" style="position:absolute;left:9px;top:9px;width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 6px 2px #7f5af0;"></div>
+    <div class="sparkle" id="orbit1"></div>
+    <div class="sparkle" id="orbit2"></div>
+    <div class="sparkle" id="orbit3"></div>
+    <div class="sparkle" id="orbit4"></div>
+    <div class="sparkle" id="orbit5"></div>
+    <div class="sparkle" id="orbit6"></div>
+  </div>
+
+  <!-- Particle Background -->
+  <div id="particles-js" class="particles"></div>
+
+  <nav id="navbar">
+    <a href="#" class="logo">
+      <i class="fas fa-code"></i> Sahil<span>Kishwar</span>
+      <span class="open-to-work pulse">Open to Work</span>
+    </a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <!-- Floating background shapes -->
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+    
+    <div class="hero-content" data-aos="fade-up">
+      <h1>Shaik Sahil Kishwar</h1>
+      <p class="tagline">Full Stack Developer specializing in Java and Spring Boot</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn">Get In Touch</a>
+        <a href="Shaik's Resume.pdf" download class="btn" style="background: transparent; border: 1px solid var(--primary); box-shadow: none; margin-left: 1rem;">
+          <i class="fas fa-download" style="margin-right:0.7rem;"></i>Download Resume
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="container" data-aos="fade-up">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>Hello! I'm Shaik Sahil Kishwar, a creative and detail-oriented Full Stack Web Developer. I specialize in building dynamic, responsive, and user-friendly web applications using modern technologies across both frontend and backend.</p>
+      <p>My expertise spans HTML5, CSS3, JavaScript, React, and AOS for stunning interfaces, as well as Java, Spring Boot, REST APIs, and MySQL for robust server-side solutions. I love transforming ideas into seamless digital experiences that delight users and drive results.</p>
+      <p>With hands-on experience in real-world projects and a passion for clean code, I thrive in collaborative environments and enjoy solving complex problems. I believe in continuous learning and staying updated with the latest trends in web development.</p>
+      <p>Beyond coding, I enjoy exploring new frameworks, contributing to open source, and sharing knowledge with the developer community. Let's build something amazing together!</p>
+      <div style="margin-top:2rem;">
+        <strong>Languages Known:</strong>
+        <span class="tag" style="margin-right:0.5rem;">English (Professional)</span>
+        <span class="tag" style="margin-right:0.5rem;">Telugu (Native)</span>
+        <span class="tag" style="margin-right:0.5rem;">Tamil (Fluent)</span>
+        <span class="tag">Hindi (Fluent)</span>
+      </div>
+      <a href="#contact" class="btn">Hire Me</a>
+    </div>
+  </section>
+
+  <section id="experience" class="container" data-aos="fade-up">
+    <h2>Experience</h2>
+    <div class="card">
+      <ul style="list-style:none;padding-left:0;">
+        <li style="margin-bottom:1.5rem;">
+          <strong>Web Development Internship</strong> <span style="color:#aaa;">(TAP Academy, 2023)</span><br>
+          <span style="color:#7f5af0;">Completed a comprehensive internship program focused on full stack web development. Gained hands-on experience in HTML, CSS, JavaScript, React.js, Node.js, and MongoDB. Built responsive and interactive web applications as part of real-time project tasks.</span>
+        </li>
+        <li>
+          <strong>Campus to Technical Careers Program</strong> <span style="color:#aaa;">(Capgemini & TNS India Foundation, 2024)</span><br>
+          <span style="color:#7f5af0;">Completed an intensive 6-month training in Spring Boot, Angular, Core Java, and Agile Methodologies. Developed full stack solutions with mentorship from industry experts and hands-on project experience.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills" class="container" data-aos="fade-up">
+    <h2>Skills</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Frontend Development</h3>
+        <div class="tags" style="margin-bottom:1.5rem;">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">React.js</span>
+          <span class="tag">WordPress</span>
+          <span class="tag">Responsive Design</span>
+          <span class="tag">Mobile-first Design</span>
+        </div>
+        <div style="font-size:1.05rem;color:#7f5af0;">Building interactive, responsive, and modern user interfaces using the latest web technologies.</div>
+      </div>
+      <div class="card">
+        <h3>Backend Development</h3>
+        <div class="tags" style="margin-bottom:1.5rem;">
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">Node.js</span>
+        </div>
+        <div style="font-size:1.05rem;color:#7f5af0;">Developing scalable server-side applications and RESTful APIs.</div>
+      </div>
+      <div class="card">
+        <h3>Database & Tools</h3>
+        <div class="tags" style="margin-bottom:1.5rem;">
+          <span class="tag">MySQL</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Git</span>
+          <span class="tag">GitHub</span>
+        </div>
+        <div style="font-size:1.05rem;color:#7f5af0;">Managing data and code with modern databases and version control systems.</div>
+      </div>
+      <div class="card">
+        <h3>Other Skills</h3>
+        <div class="tags" style="margin-bottom:1.5rem;">
+          <span class="tag">Problem Solving</span>
+          <span class="tag">Collaboration</span>
+        </div>
+        <div style="font-size:1.05rem;color:#7f5af0;">Strong analytical, teamwork, and communication skills.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="container" data-aos="fade-up">
+    <h2>Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Shopping Mall Management System</h3>
+        <p>A comprehensive solution for managing all aspects of shopping mall operations with real-time data and analytics.</p>
+        <div class="tags">
+          <span class="tag">Java</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Thymeleaf</span>
+        </div>
+        <ul>
+          <li>Real-time inventory tracking and analytics</li>
+          <li>Automated billing and tenant management</li>
+          <li>Admin dashboard with performance metrics</li>
+          <li>Secure role-based access control</li>
+        </ul>
+        <a href="#" class="btn">View Project</a>
+      </div>
+      <div class="card">
+        <h3>E-commerce API</h3>
+        <p>RESTful API for an e-commerce platform with complete product and order management system.</p>
+        <div class="tags">
+          <span class="tag">Spring Boot</span>
+          <span class="tag">JPA</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Swagger</span>
+        </div>
+        <ul>
+          <li>JWT authentication and authorization</li>
+          <li>Product catalog and inventory management</li>
+          <li>Order processing and payment integration</li>
+          <li>Comprehensive API documentation</li>
+        </ul>
+        <a href="#" class="btn">View Project</a>
+      </div>
+      <div class="card">
+        <h3>Portfolio Website</h3>
+        <p>Interactive personal portfolio showcasing skills, projects and professional information.</p>
+        <div class="tags">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Particle.js</span>
+        </div>
+        <ul>
+          <li>Responsive design for all devices</li>
+          <li>Interactive animations and effects</li>
+          <li>Dark/light theme toggle</li>
+          <li>Contact form with validation</li>
+        </ul>
+        <a href="#" class="btn">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications" class="container" data-aos="fade-up">
+    <h2>Certifications</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Campus to Technical Careers Program</h3>
+        <p><strong>Issued by:</strong> Capgemini & TNS India Foundation</p>
+        <p><strong>Year:</strong> 2024</p>
+        <p><strong>Skills:</strong> Spring Boot, Angular, Core Java, Agile Methodologies</p>
+        <p>Intensive 6-month training program covering full stack development with hands-on projects and mentorship from industry experts at Capgemini.</p>
+        <a href="tnsif.pdf" download class="btn" style="margin-top:1rem;background:transparent;border:1px solid var(--primary);box-shadow:none;color:var(--primary);">
+          <i class="fas fa-file-download" style="margin-right:0.7rem;"></i>Download Certificate
+        </a>
+      </div>
+      <div class="card">
+        <h3>Web Development Internship</h3>
+        <p><strong>Issued by:</strong> TAP Academy</p>
+        <p><strong>Year:</strong> 2025</p>
+        <p><strong>Skills:</strong> HTML, CSS, JavaScript, React.js, Node.js, MongoDB</p>
+        <p>Completed a comprehensive internship program focused on full stack web development. Built responsive and interactive web applications as part of real-time project tasks.</p>
+        <a href="tap-internship-certificate.pdf" download class="btn" type="application/pdf" style="margin-top:1rem;background:transparent;border:1px solid var(--primary);box-shadow:none;color:var(--primary);">
+          <i class="fas fa-file-download" style="margin-right:0.7rem;"></i>Download Certificate
+        </a>
+      </div>
+      <div class="card">
+        <h3>Java Programming Masterclass</h3>
+        <p><strong>Issued by:</strong> Udemy</p>
+        <p><strong>Year:</strong> 2023</p>
+        <p><strong>Skills:</strong> Core Java, OOP, Data Structures, Algorithms</p>
+        <p>Comprehensive 80+ hour course covering Java fundamentals to advanced concepts with practical coding exercises and project work.</p>
+        <a href="ibm-python-certificate.pdf" download class="btn" style="margin-top:1rem;background:transparent;border:1px solid var(--primary);box-shadow:none;color:var(--primary);">
+          <i class="fas fa-file-download" style="margin-right:0.7rem;"></i>Download Certificate
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="container" data-aos="fade-up">
+    <h2>Contact Me</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Get In Touch</h3>
+        <form id="contact-form">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+      <div class="card">
+        <h3>Contact Info</h3>
+        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> sahilkishwar2003@gmail.com</p>
+        <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +91 9346763113</p>
+        <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Anantapur, Andhra Pradesh, India</p>
+        <div class="social-links">
+          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="#hero" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+    <p>&copy; 2024 Shaik Sahil Kishwar. All rights reserved.</p>
+    <p>Made with <i class="fas fa-heart" style="color: var(--accent);"></i> and <i class="fas fa-code"></i></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS animations
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+
+    // Trailing Cursor Animation Logic
+    document.addEventListener('DOMContentLoaded', function() {
+      const cursor = document.querySelector('.sparkle-cursor');
+      const mainDot = cursor.querySelector('.main-dot');
+      const trailDots = [
+        document.getElementById('orbit1'),
+        document.getElementById('orbit2'),
+        document.getElementById('orbit3'),
+        document.getElementById('orbit4'),
+        document.getElementById('orbit5'),
+        document.getElementById('orbit6')
+      ];
+      let mouseX = 0, mouseY = 0;
+      let positions = Array(trailDots.length).fill({x: 0, y: 0});
+
+      document.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursor.style.left = mouseX + 'px';
+        cursor.style.top = mouseY + 'px';
+      });
+
+      function animateTrail() {
+        // Main dot stays centered
+        mainDot.style.left = '9px';
+        mainDot.style.top = '9px';
+        // Each trail dot follows the previous one
+        let prevX = mouseX, prevY = mouseY;
+        for (let i = 0; i < trailDots.length; i++) {
+          // Smoothly interpolate position
+          positions[i] = {
+            x: positions[i].x + (prevX - positions[i].x) * 0.25,
+            y: positions[i].y + (prevY - positions[i].y) * 0.25
+          };
+          // Place dot relative to cursor container
+          trailDots[i].style.left = (positions[i].x - mouseX + 12) + 'px';
+          trailDots[i].style.top = (positions[i].y - mouseY + 12) + 'px';
+          prevX = positions[i].x;
+          prevY = positions[i].y;
+        }
+        requestAnimationFrame(animateTrail);
+      }
+      animateTrail();
+
+      // Navbar scroll effect
+      window.addEventListener('scroll', function() {
+        const nav = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+
+      // Scroll animations
+      const sections = document.querySelectorAll('section');
+      
+      const checkVisibility = () => {
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.75) {
+            section.classList.add('visible');
+          }
+        });
+      };
+
+      window.addEventListener('scroll', checkVisibility);
+      checkVisibility(); // Run once on load
+
+      // Animate skill bars
+      const skillBars = document.querySelectorAll('.skill-progress');
+      window.addEventListener('scroll', function() {
+        skillBars.forEach(bar => {
+          const rect = bar.getBoundingClientRect();
+          if (rect.top < window.innerHeight) {
+            bar.style.width = bar.getAttribute('data-level');
+          }
+        });
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      // Form submission
+      const form = document.getElementById('contact-form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          // Here you would typically send the form data to a server
+          alert('Thank you for your message! I will get back to you soon.');
+          form.reset();
+        });
+      }
+
+      // Back to top button visibility
+      const backToTop = document.querySelector('.back-to-top');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTop.style.opacity = '1';
+          backToTop.style.visibility = 'visible';
+        } else {
+          backToTop.style.opacity = '0';
+          backToTop.style.visibility = 'hidden';
+        }
+      });
+    });
+
+    // Initialize particles.js
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { 
+          "value": 80, 
+          "density": { 
+            "enable": true, 
+            "value_area": 800 
+          } 
+        },
+        "color": { 
+          "value": "#7f5af0" 
+        },
+        "shape": { 
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          }
+        },
+        "opacity": { 
+          "value": 0.5, 
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": { 
+          "value": 3, 
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 2,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": { 
+          "enable": true, 
+          "distance": 150, 
+          "color": "#7f5af0", 
+          "opacity": 0.3, 
+          "width": 1 
+        },
+        "move": { 
+          "enable": true, 
+          "speed": 2, 
+          "direction": "none", 
+          "random": true, 
+          "straight": false, 
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": true,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { 
+            "enable": true, 
+            "mode": "repulse" 
+          },
+          "onclick": { 
+            "enable": true, 
+            "mode": "push" 
+          },
+          "resize": true
+        },
+        "modes": {
+          "repulse": { 
+            "distance": 100, 
+            "duration": 0.4 
+          },
+          "push": { 
+            "particles_nb": 4 
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+</body>
+</html>

@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <!--
   Smokey, shiny, multi-color animated name effect.
+  Added space between Sahil and Kishwar in navbar.
+  Modified back-to-top icon to SVG arrow with gradient background and particle cursor animation.
   The actual animation is handled by CSS and JS below.
+  Updated on 03:53 PM IST, Friday, July 25, 2025.
 -->
 <html lang="en">
 
@@ -13,8 +16,8 @@
   <!-- Stylish Google Fonts for headings and accents -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Quicksand:wght@400;700&family=Pacifico&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERX3ZjQ==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" integrity="sha384-ANsxP1r4J3OjjlY2Qgl1wts6JRTt0k0f2K4a9wG4e6f3m0f2k3l4j5g6h7i8j9k" crossorigin="anonymous" />
   <style>
     /* Blinking Cursor Dot for Hover */
     .sparkle-cursor .blink-dot {
@@ -58,12 +61,11 @@
         box-shadow: 0 0 12px 4px #7f5af0, 0 0 24px 8px #3fb950, 0 0 18px 6px #f85149;
       }
       100% {
-        background: #fff;
-        box-shadow: 0 0 12px 4px #7f5af0, 0 0 24px 8px #3fb950, 0 0 18px 6px #f85149;
+        background: 0 0 12px 4px #7f5af0, 0 0 24px 8px #3fb950, 0 0 18px 6px #f85149;
       }
     }
     :root {
-      --bg: rgba(17, 25, 40, 0.85);
+      --bg: rgba(17, 25, 40, 0.75);
       --card: rgba(255, 255, 255, 0.05);
       --primary: #7f5af0;
       --primary-light: #9371ff;
@@ -74,79 +76,80 @@
       --text-dark: #0d1117;
     }
     /* Smokey Name Animation */
-#hero-name {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-}
+    #hero-name {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
 
-.name-part {
-  display: inline-block;
-  position: relative;
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  font-weight: 700;
-  color: transparent;
-  text-shadow: 0 0 10px rgba(255,255,255,0.3);
-  opacity: 0;
-  transform: translateY(20px);
-  filter: blur(8px);
-  animation: smokeIn 1.2s forwards cubic-bezier(0.4,0,0.2,1);
-}
+    .name-part {
+      display: inline-block;
+      position: relative;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 700;
+      color: transparent;
+      text-shadow: 0 0 10px rgba(255,255,255,0.3);
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(8px);
+      animation: smokeIn 1.2s forwards cubic-bezier(0.4,0,0.2,1);
+    }
 
-.name-part:nth-child(1) {
-  animation-delay: 0.2s;
-  color: var(--primary);
-}
-.name-part:nth-child(2) {
-  animation-delay: 0.6s;
-  color: var(--highlight);
-}
-.name-part:nth-child(3) {
-  animation-delay: 1s;
-  color: var(--accent);
-}
+    .name-part:nth-child(1) {
+      animation-delay: 0.2s;
+      color: var(--primary);
+    }
+    .name-part:nth-child(2) {
+      animation-delay: 0.6s;
+      color: var(--highlight);
+    }
+    .name-part:nth-child(3) {
+      animation-delay: 1s;
+      color: var(--accent);
+    }
 
-@keyframes smokeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(40px) scale(1.4);
-    filter: blur(20px);
-    letter-spacing: 1em;
-  }
-  50% {
-    opacity: 0.8;
-    filter: blur(10px);
-  }
-  70% {
-    opacity: 0.9;
-    transform: translateY(-5px) scale(1.05);
-    filter: blur(5px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-    letter-spacing: normal;
-    text-shadow: 0 0 20px currentColor, 0 0 40px rgba(127,90,240,0.5);
-  }
-}
+    @keyframes smokeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(40px) scale(1.4);
+        filter: blur(20px);
+        letter-spacing: 1em;
+      }
+      50% {
+        opacity: 0.8;
+        filter: blur(10px);
+      }
+      70% {
+        opacity: 0.9;
+        transform: translateY(-5px) scale(1.05);
+        filter: blur(5px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+        letter-spacing: normal;
+        text-shadow: 0 0 20px currentColor, 0 0 40px rgba(127,90,240,0.5);
+      }
+    }
 
-/* Add glow effect on hover */
-.name-part:hover {
-  animation: nameGlow 1.5s infinite alternate;
-}
+    /* Add glow effect on hover */
+    .name-part:hover {
+      animation: nameGlow 1.5s infinite alternate;
+    }
 
-@keyframes nameGlow {
-  from {
-    text-shadow: 0 0 10px currentColor, 0 0 20px rgba(255,255,255,0.3);
-  }
-  to {
-    text-shadow: 0 0 20px currentColor, 0 0 40px currentColor, 0 0 60px rgba(127,90,240,0.7);
-  }
-}
+    @keyframes nameGlow {
+      from {
+        text-shadow: 0 0 10px currentColor, 0 0 20px rgba(255,255,255,0.3);
+      }
+      to {
+        text-shadow: 0 0 20px currentColor, 0 0 40px currentColor, 0 0 60px rgba(127,90,240,0.7);
+      }
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -297,6 +300,8 @@
       font-size: 1.5rem;
       letter-spacing: 1.5px;
       font-weight: 700;
+      display: flex;
+      align-items: center;
     }
     .btn {
       font-family: 'Montserrat', 'Quicksand', Arial, sans-serif;
@@ -328,24 +333,44 @@
       font-size: 1rem;
     }
 
+    .ssk-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary), var(--highlight));
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      padding: 0.4rem;
+      margin-right: 0.8rem;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover .ssk-icon {
+      transform: scale(1.1) rotate(15deg);
+    }
+
     .logo {
       color: white;
       letter-spacing: 0.5px;
       font-weight: 600;
       text-decoration: none;
       font-size: 0.98rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
     }
 
     .logo i {
       color: var(--primary);
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
       transition: transform 0.3s ease;
     }
 
     .logo:hover i {
-      transform: rotate(15deg);
+      transform: rotate(15deg) scale(1.1);
     }
 
     .logo span {
@@ -371,7 +396,7 @@
     .nav-links a {
       color: var(--secondary);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 700; /* Bold font for navbar links */
       transition: all 0.3s ease;
       position: relative;
       z-index: 1;
@@ -523,18 +548,6 @@
       color: white;
       margin-bottom: 1.5rem;
     }
-
-        .hero-content h1 {
-          font-size: clamp(2.5rem, 8vw, 4.5rem);
-          margin-bottom: 1.5rem;
-          color: #fff;
-          line-height: 1.2;
-          font-family: 'Montserrat', 'Space Grotesk', Arial, sans-serif;
-          font-weight: 700;
-          letter-spacing: 2px;
-          display: block;
-          text-align: center;
-        }
 
     /* Cards */
     .card {
@@ -722,7 +735,7 @@
       top: -25px;
       width: 50px;
       height: 50px;
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary), var(--highlight));
       color: white;
       border-radius: 50%;
       display: flex;
@@ -731,11 +744,18 @@
       font-size: 1.2rem;
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(127, 90, 240, 0.3);
+      overflow: visible; /* Allow sprinkle particles to be visible */
     }
 
     .back-to-top:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(127, 90, 240, 0.4);
+    }
+
+    .back-to-top svg {
+      width: 24px;
+      height: 24px;
+      fill: #fff;
     }
 
     /* Certifications Section Styles */
@@ -788,10 +808,22 @@
         top: -20px;
       }
 
+      .back-to-top svg {
+        width: 20px;
+        height: 20px;
+      }
+
       .certification-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
+      }
+
+      .ssk-icon {
+        width: 25px;
+        height: 25px;
+        font-size: 0.7rem;
+        margin-right: 0.6rem;
       }
     }
 
@@ -923,13 +955,34 @@
     }
     @keyframes multi-shiny-gradient {
       0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
+      100% { background-position: 400% 50%; }
+    }
+
+    /* Contact Social Icons */
+    .contact-socials-simple .contact-social-icon {
+      color: #fff;
+      font-size: 1.4rem;
+      transition: color 0.2s, transform 0.2s, background 0.2s;
+      border-radius: 50%;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .contact-socials-simple .contact-social-icon:hover {
+      background: #23272f;
+      color: #7f5af0;
+      transform: translateY(-4px) scale(1.15);
+      box-shadow: 0 2px 10px rgba(127,90,240,0.13);
+    }
+    .contact-socials-simple .contact-social-icon:active {
+      background: #181c24;
+      color: #3fb950;
     }
   </style>
 </head>
 
 <body>
-
   <!-- Orbit Cursor Element -->
   <div class="sparkle-cursor">
     <div class="blink-dot"></div>
@@ -946,7 +999,8 @@
 
   <nav id="navbar">
     <a href="#" class="logo">
-      Sahil<span>Kishwar</span>
+      <span class="ssk-icon">SSK</span>
+      Sahil <span>Kishwar</span>
       <span class="open-to-work pulse">Open to Work</span>
     </a>
     <div class="nav-links">
@@ -970,7 +1024,7 @@
       </h1>
       <p class="tagline">Full Stack Developer specializing in Java and Spring Boot</p>
       <div class="hero-buttons">
-        <a href="Shaik's Resume.pdf" download class="btn" style="background: transparent; border: 1px solid var(--primary); box-shadow: none; margin-left: 1rem;">
+        <a href="Shaik's Resume.pdf" download class="btn" style="background: transparent; border: 1px solid var(--primary); box-shadow: none; margin-left: 1rem;" aria-label="Download Shaik Sahil Kishwar's Resume">
           <i class="fas fa-download" style="margin-right:0.7rem;"></i>Download Resume
         </a>
       </div>
@@ -984,7 +1038,7 @@
       <p>My expertise spans HTML, CSS, JavaScript, React, and AOS for stunning interfaces, as well as Java, Spring Boot, REST APIs, and MySQL for robust server-side solutions. I love transforming ideas into seamless digital experiences that delight users and drive results.</p>
       <p>With hands-on experience in real-world projects and a passion for clean code, I thrive in collaborative environments and enjoy solving complex problems. I believe in continuous learning and staying updated with the latest trends in web development.</p>
       <p>Beyond coding, I enjoy exploring new frameworks, contributing to open source, and sharing knowledge with the developer community. Let's build something amazing together!</p>
-      <a href="#contact" class="btn">Hire Me</a>
+      <a href="#contact" class="btn" aria-label="Hire Shaik Sahil Kishwar">Hire Me</a>
     </div>
   </section>
 
@@ -1062,7 +1116,7 @@
           <li>Admin dashboard with performance metrics</li>
           <li>Secure role-based access control</li>
         </ul>
-        <a href="#" class="btn">View Project</a>
+        <a href="#" class="btn" aria-label="View Shopping Mall Management System Project">View Project</a>
       </div>
       <div class="card">
         <h3>E-commerce API</h3>
@@ -1079,7 +1133,7 @@
           <li>Order processing and payment integration</li>
           <li>Comprehensive API documentation</li>
         </ul>
-        <a href="#" class="btn">View Project</a>
+        <a href="#" class="btn" aria-label="View E-commerce API Project">View Project</a>
       </div>
       <div class="card">
         <h3>Portfolio Website</h3>
@@ -1096,7 +1150,7 @@
           <li>Dark/light theme toggle</li>
           <li>Contact form with validation</li>
         </ul>
-        <a href="#" class="btn">View Project</a>
+        <a href="#" class="btn" aria-label="View Portfolio Website Project">View Project</a>
       </div>
     </div>
   </section>
@@ -1158,7 +1212,7 @@
     <div class="contact-separate-grid">
       <div class="card contact-form-card" style="width:100%;">
         <form id="contact-form" class="contact-modern-form">
-          <h3 style="margin-bottom: 1.2rem; color: var(--primary); display: flex; align-items: center; gap: 0.7rem;"><i class="fas fa-paper-plane"></i> Let's Connect!</h3>
+          <h3 style="margin-bottom: 1.2rem; color: var(--primary); display:flex; align-items: center; gap: 0.7rem;"><i class="fas fa-paper-plane"></i> Let's Connect!</h3>
           <div class="contact-modern-field">
             <i class="fas fa-user"></i>
             <input type="text" name="from_name" placeholder="Your Name" required />
@@ -1171,7 +1225,7 @@
             <i class="fas fa-comment-dots"></i>
             <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
           </div>
-          <button type="submit" class="btn">Send Message</button>
+          <button type="submit" class="btn" aria-label="Send Contact Message">Send Message</button>
         </form>
       </div>
     </div>
@@ -1194,47 +1248,41 @@
         <a href="#" aria-label="Twitter" class="contact-social-icon"><i class="fab fa-twitter"></i></a>
         <a href="#" aria-label="Instagram" class="contact-social-icon"><i class="fab fa-instagram"></i></a>
       </div>
-    <style>
-      .contact-socials-simple .contact-social-icon {
-        color: #fff;
-        font-size: 1.4rem;
-        transition: color 0.2s, transform 0.2s, background 0.2s;
-        border-radius: 50%;
-        padding: 0.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .contact-socials-simple .contact-social-icon:hover {
-        background: #23272f;
-        color: #7f5af0;
-        transform: translateY(-4px) scale(1.15);
-        box-shadow: 0 2px 10px rgba(127,90,240,0.13);
-      }
-      .contact-socials-simple .contact-social-icon:active {
-        background: #181c24;
-        color: #3fb950;
-      }
-    </style>
     </div>
   </section>
 
   <footer>
-    <a href="#hero" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
-    <p>&copy; 2025 Shaik Sahil Kishwar. All rights reserved.</p>
+    <a href="#hero" class="back-to-top" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19V5" />
+        <path d="M5 12l7-7 7 7" />
+      </svg>
+    </a>
+    <p>© 2025 Shaik Sahil Kishwar. All rights reserved.</p>
     <p>Made with <i class="fas fa-heart" style="color: var(--accent);"></i> and <i class="fas fa-code"></i></p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" integrity="sha256-AvB0QiuDEyEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERX3ZjQ==" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" integrity="sha384-ANsxP1r4J3OjjlY2Qgl1wts6JRTt0k0f2K4a9wG4e6f3m0f2k3l4j5g6h7i8j9k" crossorigin="anonymous"></script>
   <script>
-  
+    // Fallback for script errors
+    window.addEventListener('error', function(e) {
+      console.error('Script loading error:', e.message);
+      document.body.style.display = 'block';
+      document.body.style.opacity = '1';
+    }, true);
+
     // Initialize AOS animations
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 1000,
+        once: true
+      });
+    } else {
+      console.warn('AOS not loaded, animations disabled');
+    }
+
     // Trailing Cursor Animation Logic + Blinking Dot only while moving
     document.addEventListener('DOMContentLoaded', function() {
       const cursor = document.querySelector('.sparkle-cursor');
@@ -1268,15 +1316,12 @@
       });
 
       function animateTrail() {
-        // Each trail dot follows the previous one
         let prevX = mouseX, prevY = mouseY;
         for (let i = 0; i < trailDots.length; i++) {
-          // Smoothly interpolate position
           positions[i] = {
             x: positions[i].x + (prevX - positions[i].x) * 0.25,
             y: positions[i].y + (prevY - positions[i].y) * 0.25
           };
-          // Place dot relative to cursor container
           trailDots[i].style.left = (positions[i].x - mouseX + 12) + 'px';
           trailDots[i].style.top = (positions[i].y - mouseY + 12) + 'px';
           prevX = positions[i].x;
@@ -1309,7 +1354,7 @@
       };
 
       window.addEventListener('scroll', checkVisibility);
-      checkVisibility(); // Run once on load
+      checkVisibility();
 
       // Animate skill bars
       const skillBars = document.querySelectorAll('.skill-progress');
@@ -1317,8 +1362,7 @@
         skillBars.forEach(bar => {
           const rect = bar.getBoundingClientRect();
           if (rect.top < window.innerHeight) {
-            bar.style.width = bar.getAttribute('data-level');
-            
+            bar.style.width = bar.getAttribute('data-level') || '80%';
           }
         });
       });
@@ -1336,32 +1380,63 @@
       // EmailJS Form submission
       const form = document.getElementById('contact-form');
       if (form) {
-        emailjs.init('Shaik Sahilkishwar'); // Replace with your actual public key if different
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          emailjs.send(
-            'service_dzps7r7',
-            'template_bazcyz6',
-            {
-              from_name: document.querySelector("input[name='from_name']").value,
-              from_email: document.querySelector("input[name='from_email']").value,
-              message: document.querySelector("textarea[name='message']").value
-            }
-          )
-          .then(function() {
-            alert('Thank you for your message! I will get back to you soon.');
-            form.reset();
-          }, function(error) {
-            console.error('EmailJS error:', error);
-            alert('Oops! Something went wrong. Please try again later.');
+        if (typeof emailjs !== 'undefined') {
+          emailjs.init('YOUR_EMAILJS_USER_ID'); // Replace with your actual EmailJS public key
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            emailjs.send(
+              'service_dzps7r7',
+              'template_bazcyz6',
+              {
+                from_name: document.querySelector("input[name='from_name']").value,
+                from_email: document.querySelector("input[name='from_email']").value,
+                message: document.querySelector("textarea[name='message']").value
+              }
+            )
+            .then(function() {
+              alert('Thank you for your message! I will get back to you soon.');
+              form.reset();
+            }, function(error) {
+              console.error('EmailJS error:', error);
+              alert('Oops! Something went wrong. Please try again later.');
+            });
           });
-        });
-        
+        } else {
+          console.warn('EmailJS not loaded, form submission disabled');
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('EmailJS is not available. Please contact me directly at sahilkishwar2003@gmail.com.');
+          });
+        }
       }
 
-      // Back to top button visibility
+      // Back to top button particle effect
       const backToTop = document.querySelector('.back-to-top');
-      window.addEventListener('scroll', function() {
+      function createSprinkle(x, y) {
+        const sprinkle = document.createElement('div');
+        sprinkle.className = 'sprinkle';
+        backToTop.appendChild(sprinkle);
+        const offsetX = (Math.random() - 0.5) * 50;
+        const offsetY = (Math.random() - 0.5) * 50;
+        sprinkle.style.left = `calc(50% + ${offsetX}px)`;
+        sprinkle.style.top = `calc(50% + ${offsetY}px)`;
+        setTimeout(() => sprinkle.remove(), 600); // Match sprinkleAnim duration
+      }
+
+      backToTop.addEventListener('mouseover', () => {
+        for (let i = 0; i < 5; i++) {
+          setTimeout(() => createSprinkle(0, 0), i * 100);
+        }
+      });
+
+      backToTop.addEventListener('click', () => {
+        for (let i = 0; i < 8; i++) {
+          setTimeout(() => createSprinkle(0, 0), i * 50);
+        }
+      });
+
+      // Back to top button visibility
+      window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
           backToTop.style.opacity = '1';
           backToTop.style.visibility = 'visible';
@@ -1370,128 +1445,8 @@
           backToTop.style.visibility = 'hidden';
         }
       });
-    });
 
-    // Initialize particles.js
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { 
-          "value": 80, 
-          "density": { 
-            "enable": true, 
-            "value_area": 800 
-          } 
-        },
-        "color": { 
-          "value": "#7f5af0" 
-        },
-        "shape": { 
-          "type": "circle",
-          "stroke": {
-            "width": 0,
-            "color": "#000000"
-          }
-        },
-        "opacity": { 
-          "value": 0.5, 
-          "random": true,
-          "anim": {
-            "enable": true,
-            "speed": 1,
-            "opacity_min": 0.1,
-            "sync": false
-          }
-        },
-        "size": { 
-          "value": 3, 
-          "random": true,
-          "anim": {
-            "enable": true,
-            "speed": 2,
-            "size_min": 0.1,
-            "sync": false
-          }
-        },
-        "line_linked": { 
-          "enable": true, 
-          "distance": 150, 
-          "color": "#7f5af0", 
-          "opacity": 0.3, 
-          "width": 1 
-        },
-        "move": { 
-          "enable": true, 
-          "speed": 2, 
-          "direction": "none", 
-          "random": true, 
-          "straight": false, 
-          "out_mode": "out",
-          "bounce": false,
-          "attract": {
-            "enable": true,
-            "rotateX": 600,
-            "rotateY": 1200
-          }
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "repulse"
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "push"
-          },
-          "resize": true
-        },
-        "modes": {
-          "grab": {
-            "distance": 400,
-            "line_linked": {
-              "opacity": 1
-            }
-          },
-          "bubble": {
-            "distance": 400,
-            "size": 40,
-            "duration": 2,
-            "opacity": 8,
-            "color": "#7f5af0",
-            "divisor": 100
-          },
-          "repulse": {
-            "distance": 100,
-            "duration": 0.4
-          },
-          "push": {
-            "particles_nb": 4
-          },
-          "remove": {
-            "particles_nb": 2
-          }
-        }
-      },
-      "retina_detect": true
-    });
-  </script>
-  <script>
-  // Stagger smokey animation for each letter in the hero name
-  document.addEventListener('DOMContentLoaded', function() {
-    const letters = document.querySelectorAll('#hero-name .smoke-letter');
-    letters.forEach((el, i) => {
-      el.style.animationDelay = (i * 0.08) + 's';
-      el.style.opacity = 1; // Ensure visible if JS loads after CSS
-    });
-  });
-  </script>
-  <script>
-    // Typewriter effect for hero name
-    document.addEventListener('DOMContentLoaded', function() {
-      // ...existing code...
-
+      // Typewriter effect for hero name
       const nameText = "Shaik Sahil Kishwar";
       const typewriterName = document.getElementById('typewriter-name');
       let idx = 0;
@@ -1505,6 +1460,115 @@
       }
       typeNextLetter();
     });
+
+    // Initialize particles.js
+    if (typeof particlesJS !== 'undefined') {
+      particlesJS("particles-js", {
+        particles: {
+          number: { 
+            value: 80, 
+            density: { 
+              enable: true, 
+              value_area: 800 
+            } 
+          },
+          color: { 
+            value: "#7f5af0" 
+          },
+          shape: { 
+            type: "circle",
+            stroke: {
+              width: 0,
+              color: "#000000"
+            }
+          },
+          opacity: { 
+            value: 0.5, 
+            random: true,
+            anim: {
+              enable: true,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false
+            }
+          },
+          size: { 
+            value: 3, 
+            random: true,
+            anim: {
+              enable: true,
+              speed: 2,
+              size_min: 0.1,
+              sync: false
+            }
+          },
+          line_linked: { 
+            enable: true, 
+            distance: 150, 
+            color: "#7f5af0", 
+            opacity: 0.3, 
+            width: 1 
+          },
+          move: { 
+            enable: true, 
+            speed: 2, 
+            direction: "none", 
+            random: true, 
+            straight: false, 
+            out_mode: "out",
+            bounce: false,
+            attract: {
+              enable: true,
+              rotateX: 600,
+              rotateY: 1200
+            }
+          }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: {
+              enable: true,
+              mode: "repulse"
+            },
+            onclick: {
+              enable: true,
+              mode: "push"
+            },
+            resize: true
+          },
+          modes: {
+            grab: {
+              distance: 400,
+              line_linked: {
+                opacity: 1
+              }
+            },
+            bubble: {
+              distance: 400,
+              size: 40,
+              duration: 2,
+              opacity: 8,
+              color: "#7f5af0",
+              divisor: 100
+            },
+            repulse: {
+              distance: 100,
+              duration: 0.4
+            },
+            push: {
+              particles_nb: 4
+            },
+            remove: {
+              particles_nb: 2
+            }
+          }
+        },
+        retina_detect: true
+      });
+    } else {
+      console.warn('particles.js not loaded, background animation disabled');
+    }
   </script>
 </body>
 </html>

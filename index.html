@@ -1,21 +1,11 @@
 <!DOCTYPE html>
 
-<!--
-  Smokey, shiny, multi-color animated name effect.
-  Added space between Sahil and Kishwar in navbar.
-  Modified back-to-top icon to SVG arrow with gradient background and particle cursor animation.
-  The actual animation is handled by CSS and JS below.
-  Updated on 08:21 PM IST, Monday, August 04, 2025.
-  Added Twitter and LinkedIn links with icons in the contact section.
-  Updated footer social media links to include email and LinkedIn only.
--->
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Shaik Sahil Kishwar | Full Stack Developer Portfolio" name="description"/>
 <title>Shaik Sahil Kishwar - Full Stack Developer</title>
-<!-- Stylish Google Fonts for headings and accents -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;family=Quicksand:wght@400;700&amp;family=Pacifico&amp;family=Space+Grotesk:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERX3ZjQ==" rel="stylesheet"/>
@@ -106,7 +96,7 @@
     }
     .name-part:nth-child(2) {
       animation-delay: 0.6s;
-      color: var(--highlight);
+     PODCAST color: var(--highlight);
     }
     .name-part:nth-child(3) {
       animation-delay: 1s;
@@ -335,27 +325,6 @@
       font-size: 1rem;
     }
 
-    .ssk-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--primary), var(--highlight));
-      color: white;
-      font-size: 0.8rem;
-      font-weight: 700;
-      font-family: 'Montserrat', sans-serif;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      padding: 0.4rem;
-      margin-right: 0.8rem;
-      transition: transform 0.3s ease;
-    }
-
-    .logo:hover .ssk-icon {
-      transform: scale(1.1) rotate(15deg);
-    }
-
     .logo {
       color: white;
       letter-spacing: 0.5px;
@@ -377,17 +346,6 @@
 
     .logo span {
       color: var(--highlight);
-    }
-
-    .open-to-work {
-      background: var(--highlight);
-      color: white;
-      padding: 0.2rem 0.5rem;
-      border-radius: 20px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      margin-left: 0.5rem;
-      animation: pulse 2s infinite;
     }
 
     .nav-links {
@@ -834,13 +792,6 @@
         align-items: flex-start;
         gap: 0.5rem;
       }
-
-      .ssk-icon {
-        width: 25px;
-        height: 25px;
-        font-size: 0.7rem;
-        margin-right: 0.6rem;
-      }
     }
 
     /* Hero Section Name Styles */
@@ -995,7 +946,81 @@
       background: #181c24;
       color: #3fb950;
     }
-  </style>
+
+/* Rounded Social Media Icons */
+.social-links a, .contact-social-icon {
+  border-radius: 50% !important;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+.social-links a:hover, .contact-social-icon:hover {
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Light-colored Buttons */
+.btn {
+  background: linear-gradient(135deg, #d0e6ff, #f0f8ff) !important;
+  color: #0d1117 !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+}
+.btn:hover {
+  background: linear-gradient(135deg, #e6f2ff, #ffffff) !important;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25) !important;
+}
+
+
+/* Refined Rounded Social Media Icons */
+.social-links a, .contact-social-icon {
+  border-radius: 50% !important;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0;
+}
+.social-links a:hover, .contact-social-icon:hover {
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Light-Colored Buttons with Variations */
+.btn {
+  background: linear-gradient(135deg, #d0e6ff, #f0f8ff) !important;
+  color: #0d1117 !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+}
+.btn:hover {
+  background: linear-gradient(135deg, #e6f2ff, #ffffff) !important;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Specific colors for project buttons */
+#projects .btn {
+  background: linear-gradient(135deg, #ffe0b2, #fff3e0) !important;
+}
+#projects .btn:hover {
+  background: linear-gradient(135deg, #fff3e0, #ffffff) !important;
+}
+
+/* Make Download Resume button normal */
+.hero-buttons .btn {
+  background: transparent !important;
+  border: 1px solid var(--primary) !important;
+  color: var(--primary) !important;
+  box-shadow: none !important;
+}
+.hero-buttons .btn:hover {
+  background: var(--primary) !important;
+  color: white !important;
+}
+
+</style>
 <style>
 .social-links a {
   margin: 0 10px;
@@ -1026,9 +1051,181 @@
 .social-links a:hover .fa-github { color: #333; }
 .social-links a:hover .fa-twitter { color: #1DA1F2; }
 .social-links a:hover .fa-instagram { color: #E1306C; }
-</style></head>
+</style><style>
+/* Timeline Styling */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem 0;
+}
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: var(--primary);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+}
+.timeline-item {
+  padding: 1rem 2rem;
+  position: relative;
+  background: inherit;
+  width: 50%;
+}
+.timeline-item:nth-child(odd) {
+  left: 0;
+}
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: -10px;
+  background-color: var(--primary);
+  border: 3px solid #fff;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.timeline-item:nth-child(even)::after {
+  left: -10px;
+}
+.timeline-content {
+  padding: 1rem 1.5rem;
+  background-color: var(--card);
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.timeline-content:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.4);
+}
+.timeline-content h3 {
+  margin-top: 0;
+  color: var(--primary-light);
+}
+.timeline-content .institution {
+  display: block;
+  font-weight: bold;
+  color: var(--secondary);
+  margin: 0.3rem 0;
+}
+.timeline-content .date {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--highlight);
+}
+@media screen and (max-width: 768px) {
+  .timeline::after {
+    left: 20px;
+  }
+  .timeline-item {
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 25px;
+  }
+  .timeline-item::after {
+    left: 0px;
+  }
+}
+</style><style>
+/* Animated hover for select sections */
+#education .timeline-content,
+#projects .card,
+#skills .card {
+  transition: transform 0.35s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.35s;
+  transform-origin: center;
+  cursor: pointer;
+  will-change: transform;
+}
+#education .timeline-content:hover,
+#projects .card:hover,
+#skills .card:hover {
+  transform: translateY(-14px) scale(1.03);
+  box-shadow: 0 18px 40px rgba(10,10,20,0.45);
+  z-index: 9999;
+}
+</style><style>
+/* Simple contact info styling */
+.contact-info-card {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+.contact-detail {
+  font-size: 1.05rem;
+  color: var(--secondary);
+  margin: 0.8rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: color 0.3s ease;
+}
+.contact-detail i {
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+.contact-detail:hover {
+  color: var(--primary);
+}
+</style><style>
+/* Horizontal contact bar styling */
+.contact-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 1.05rem;
+  color: var(--secondary);
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+.contact-item i {
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+.contact-item:hover {
+  color: var(--primary);
+}
+@media screen and (max-width: 768px) {
+  .contact-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+</style><style>
+/* Remove blinking cursor and enlarge sparkle cursor */
+.sparkle-cursor .blink-dot,
+.typewriter-cursor {
+  display: none !important;
+  opacity: 0 !important;
+  animation: none !important;
+}
+
+.sparkle-cursor {
+  width: 36px !important;
+  height: 36px !important;
+}
+</style>
+</head>
 <body>
-<!-- Orbit Cursor Element -->
 <div class="sparkle-cursor">
 <div class="blink-dot"></div>
 <div class="sparkle" id="orbit1"></div>
@@ -1038,14 +1235,9 @@
 <div class="sparkle" id="orbit5"></div>
 <div class="sparkle" id="orbit6"></div>
 </div>
-<!-- Particle Background -->
 <div class="particles" id="particles-js"></div>
 <nav id="navbar">
-<a class="logo" href="#">
-<span class="ssk-icon">SSK</span>
-      Sahil <span>Kishwar</span>
-<span class="open-to-work pulse">Open to Work</span>
-</a>
+<a class="logo" href="#">Sahil <span>Kishwar</span></a>
 <div class="nav-links">
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
@@ -1055,15 +1247,13 @@
 </div>
 </nav>
 <section id="hero">
-<!-- Floating background shapes -->
 <div class="floating-shape shape-1"></div>
 <div class="floating-shape shape-2"></div>
 <div class="floating-shape shape-3"></div>
 <div class="hero-content" data-aos="fade-up">
-<h1 id="hero-name">
+<h1 id="hero-name" style="background: linear-gradient(90deg, coral, dodgerblue, #FF69B4, #8A2BE2, #FF8C00, #228B22, #FF4500); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;">
 <span id="typewriter-name"></span>
-</h1>
-<p class="tagline">Full Stack Developer specializing in Java and Spring Boot</p>
+</h1><p id="typewriter-tagline" style="color:white; font-size:1.2rem; margin-top:0.5rem;"></p>
 <div class="hero-buttons">
 <a aria-label="Download Shaik Sahil Kishwar's Resume" class="btn" download="" href="Shaik's Resume.pdf" style="background: transparent; border: 1px solid var(--primary); box-shadow: none; margin-left: 1rem;">
 <i class="fas fa-download" style="margin-right:0.7rem;"></i>Download Resume
@@ -1072,7 +1262,7 @@
 </div>
 </section>
 <section class="container" data-aos="fade-up" id="about">
-<h2>About Me</h2>
+<h2 style="color:coral;">About Me</h2>
 <div class="card">
 <p>Hello! I'm Shaik Sahil Kishwar, a creative and detail-oriented Full Stack Web Developer. I specialize in building dynamic, responsive, and user-friendly web applications using modern technologies across both frontend and backend.</p>
 <p>My expertise spans HTML, CSS, JavaScript, React, and AOS for stunning interfaces, as well as Java, Spring Boot, REST APIs, and MySQL for robust server-side solutions. I love transforming ideas into seamless digital experiences that delight users and drive results.</p>
@@ -1082,25 +1272,40 @@
 </div>
 </section>
 <section class="container" data-aos="fade-up" id="experience">
-<h2>Experience</h2>
+<h2 style="color:dodgerblue;">Experience</h2>
 <div class="card">
 <ul style="list-style:none;padding-left:0;">
-<li style="margin-bottom:1.5rem;">
-<strong>Web Development Internship</strong> <span style="color:#aaa;">(TAP Academy, 2025)</span><br/>
-<span style="color:#7f5af0;">Completed a comprehensive internship program focused on full stack web development. Gained hands-on experience in HTML, CSS, JavaScript, React.js, Node.js, and MongoDB. Built responsive and interactive web applications as part of real-time project tasks.</span>
+<li style="margin-bottom:1.5rem; display:flex; align-items:flex-start; gap:0.7rem;">
+<i class="fas fa-laptop-code" data-aos="zoom-in" style="color:var(--highlight); font-size:1.2rem; margin-top:4px;"></i>
+<div>
+<strong style="color:#FFD700;">Web Development Intern</strong> <span style="color:var(--secondary);">(TAP Academy, 2025)</span><br/>
+<span style="color:white;">
+            Completed an intensive internship focused on <strong style="color:#FFD700;">full-stack web development</strong>. Built responsive, interactive web applications using <strong style="color:#FFD700;">HTML, CSS, JavaScript, React.js, Node.js, and MongoDB</strong>.<br/>
+            Collaborated in real-time project environments, implementing features based on client requirements.<br/>
+            Improved application performance by optimizing frontend rendering and backend queries.
+          </span>
+</div>
 </li>
-<li>
-<strong>Campus to Technical Careers Program</strong> <span style="color:#aaa;">(Capgemini &amp; TNS India Foundation, 2024)</span><br/>
-<span style="color:#7f5af0;">Completed an intensive 6-month training in Spring Boot, Angular, Core Java, and Agile Methodologies. Developed full stack solutions with mentorship from industry experts and hands-on project experience.</span>
+<li style="display:flex; align-items:flex-start; gap:0.7rem;">
+<i class="fas fa-project-diagram" data-aos="zoom-in" style="color:var(--primary); font-size:1.2rem; margin-top:4px;"></i>
+<div>
+<strong style="color:#FFD700;">Campus to Technical Careers Trainee</strong> <span style="color:var(--secondary);">(Capgemini &amp; TNS India Foundation, 2024)</span><br/>
+<span style="color:white;">
+            Completed a <strong style="color:#FFD700;">6-month industry-oriented training program</strong> in <strong style="color:#FFD700;">Spring Boot, Angular, Core Java, and Agile methodologies</strong>.<br/>
+            Designed and developed <strong style="color:#FFD700;">end-to-end full-stack applications</strong> under guidance from industry mentors.<br/>
+            Applied Agile project management practices, actively participating in sprints, stand-ups, and retrospectives.<br/>
+            Delivered scalable and maintainable code adhering to best coding standards.
+          </span>
+</div>
 </li>
 </ul>
 </div>
 </section>
 <section class="container" data-aos="fade-up" id="skills">
-<h2>Skills</h2>
+<h2 style="color:#FF69B4;">Skills</h2>
 <div class="grid">
 <div class="card">
-<h3>Frontend Development</h3>
+<h3 style="color:#00FFFF;">Frontend Development</h3>
 <div class="tags" style="margin-bottom:1.5rem;">
 <span class="tag">HTML</span>
 <span class="tag">CSS</span>
@@ -1110,20 +1315,20 @@
 <span class="tag">Responsive Design</span>
 <span class="tag">Mobile-first Design</span>
 </div>
-<div style="font-size:1.05rem;color:#7f5af0;">Building interactive, responsive, and modern user interfaces using the latest web technologies.</div>
+<div style="color:white; font-size:1.05rem;">Building interactive, responsive, and modern user interfaces using the latest web technologies.</div>
 </div>
 <div class="card">
-<h3>Backend Development</h3>
+<h3 style="color:#00FFFF;">Backend Development</h3>
 <div class="tags" style="margin-bottom:1.5rem;">
 <span class="tag">Python</span>
 <span class="tag">Java</span>
 <span class="tag">Spring Boot</span>
 <span class="tag">Node.js</span>
 </div>
-<div style="font-size:1.05rem;color:#7f5af0;">Developing scalable server-side applications and RESTful APIs.</div>
+<div style="color:white; font-size:1.05rem;">Developing scalable server-side applications and RESTful APIs.</div>
 </div>
 <div class="card">
-<h3>Database &amp; Tools</h3>
+<h3 style="color:#00FFFF;">Database &amp; Tools</h3>
 <div class="tags" style="margin-bottom:1.5rem;">
 <span class="tag">MySQL</span>
 <span class="tag">PostgreSQL</span>
@@ -1131,15 +1336,41 @@
 <span class="tag">SQL</span>
 <span class="tag">Version Control (Git)</span>
 </div>
-<div style="font-size:1.05rem;color:#7f5af0;">Managing data and code with modern databases and version control systems.</div>
+<div style="color:white; font-size:1.05rem;">Managing data and code with modern databases and version control systems.</div>
+</div>
+</div>
+</section>
+<section class="container" data-aos="fade-up" id="education">
+<h2 style="color:#8A2BE2;">Education</h2>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-content">
+<h3>B-Tech Computer Science and Business Systems</h3>
+<span class="institution">Excel Engineering College</span>
+<span class="date">2021 - 2025</span>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-content">
+<h3>Higher Secondary</h3>
+<span class="institution">Narayana Jr. College</span>
+<span class="date">2019 - 2020</span>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-content">
+<h3>Secondary Education</h3>
+<span class="institution">Bashyam Public School</span>
+<span class="date">2018 - 2019</span>
+</div>
 </div>
 </div>
 </section>
 <section class="container" data-aos="fade-up" id="projects">
-<h2>Projects</h2>
+<h2 style="color:#FF8C00;">Projects</h2>
 <div class="grid">
 <div class="card">
-<h3>Shopping Mall Management System</h3>
+<h3 style="color:#FFA500;">Shopping Mall Management System</h3>
 <p>A comprehensive solution for managing all aspects of shopping mall operations with real-time data and analytics.</p>
 <div class="tags">
 <span class="tag">Java</span>
@@ -1156,7 +1387,7 @@
 <a aria-label="View Shopping Mall Management System Project" class="btn" href="#">View Project</a>
 </div>
 <div class="card">
-<h3>E-commerce API</h3>
+<h3 style="color:#FFA500;">E-commerce API</h3>
 <p>RESTful API for an e-commerce platform with complete product and order management system.</p>
 <div class="tags">
 <span class="tag">Spring Boot</span>
@@ -1173,7 +1404,7 @@
 <a aria-label="View E-commerce API Project" class="btn" href="#">View Project</a>
 </div>
 <div class="card">
-<h3>Portfolio Website</h3>
+<h3 style="color:#FFA500;">Portfolio Website</h3>
 <p>Interactive personal portfolio showcasing skills, projects and professional information.</p>
 <div class="tags">
 <span class="tag">HTML</span>
@@ -1192,12 +1423,12 @@
 </div>
 </section>
 <section class="container" data-aos="fade-up" id="certifications">
-<h2>Certifications</h2>
+<h2 style="color:#228B22;">Certifications</h2>
 <div class="grid">
 <div class="card">
 <div class="certification-header">
 <i class="fas fa-certificate" style="color: var(--highlight); font-size: 2rem;"></i>
-<h3>Campus to Technical Careers Program</h3>
+<h3 style="color:#20B2AA;">Campus to Technical Careers Program</h3>
 </div>
 <p><strong>Issued by:</strong> Capgemini &amp; TNS India Foundation</p>
 <p><strong>Date:</strong> January 2024</p>
@@ -1212,7 +1443,7 @@
 <div class="card">
 <div class="certification-header">
 <i class="fas fa-certificate" style="color: var(--primary); font-size: 2rem;"></i>
-<h3>Web Development Internship</h3>
+<h3 style="color:#20B2AA;">Web Development Internship</h3>
 </div>
 <p><strong>Issued by:</strong> TAP Academy</p>
 <p><strong>Date:</strong> June 2023</p>
@@ -1227,7 +1458,7 @@
 <div class="card">
 <div class="certification-header">
 <i class="fas fa-certificate" style="color: var(--accent); font-size: 2rem;"></i>
-<h3>Java Programming Masterclass</h3>
+<h3 style="color:#20B2AA;">Java Programming Masterclass</h3>
 </div>
 <p><strong>Issued by:</strong> Udemy</p>
 <p><strong>Date:</strong> March 2023</p>
@@ -1241,7 +1472,7 @@
 </div>
 </section>
 <section class="container" data-aos="fade-up" id="contact">
-<h2>Contact Me</h2>
+<h2 style="color:#FF4500;">Contact Me</h2>
 <div class="contact-separate-grid">
 <div class="card contact-form-card" style="width:100%;">
 <form class="contact-modern-form" id="contact-form">
@@ -1259,21 +1490,12 @@
 </form>
 </div>
 </div>
-<div class="card contact-info-card" style="margin-top:2.5rem; background: #181c24; color: #fff; border: none; text-align:center; padding:2rem 1.2rem 1.5rem 1.2rem; border-radius: 18px; box-shadow: 0 4px 18px rgba(0,0,0,0.18);">
-<div style="margin-bottom:1.2rem; font-size:1.1rem; display:flex; align-items:center; gap:0.7rem; justify-content:center;">
-<span>✉️  shaiksahilkishwar24@gmail.com</span>
-</div>
-<div style="margin-bottom:1.2rem; font-size:1.1rem; display:flex; align-items:center; gap:0.7rem; justify-content:center;">
-<span>📞  +91 9346763113</span>
-</div>
-<div style="margin-bottom:1.2rem; font-size:1.1rem; display:flex; align-items:center; gap:0.7rem; justify-content:center;">
-<span>📍 Anantapur, Andhra Pradesh, India</span>
-</div>
-<div class="contact-socials-simple" style="margin-top:1.5rem; display:flex; justify-content:center; gap:1.2rem;">
-<a aria-label="GitHub" class="contact-social-icon" href="https://github.com/sahilkishwar"></a>
-<a aria-label="LinkedIn" class="contact-social-icon" href="https://www.linkedin.com/in/sahilkishwar"></a>
-<a aria-label="Twitter" class="contact-social-icon" href="https://x.com/Sahil_Kishwar24"></a>
-<a aria-label="Instagram" class="contact-social-icon" href="https://instagram.com/sahilkishwar"></a>
+<div class="card contact-info-card">
+<h3 style="color: var(--primary); margin-bottom: 1.5rem;">Get in Touch</h3>
+<div class="contact-bar">
+<div class="contact-item"><i class="fas fa-envelope"></i> shaiksahilkishwar24@gmail.com</div>
+<div class="contact-item"><i class="fas fa-phone"></i> +91 9346763113</div>
+<div class="contact-item"><i class="fas fa-map-marker-alt"></i> Anantapur, Andhra Pradesh, India</div>
 </div>
 </div>
 </section>
@@ -1284,7 +1506,6 @@
 <path d="M5 12l7-7 7 7"></path>
 </svg>
 </a>
-<!-- Social Media Icons - Reduced size and removed email -->
 <p>© 2025 Shaik Sahil Kishwar. All rights reserved.</p>
 <p>Made with <i class="fas fa-heart" style="color: var(--accent);"></i> and <i class="fas fa-code"></i></p>
 <div class="social-links"><a aria_label="LinkedIn" href="https://www.linkedin.com/in/sahilkishwar" target="_blank"><i class="fa-brands fa-linkedin"></i></a><a aria_label="GitHub" href="https://github.com/sahilkishwar" target="_blank"><i class="fa-brands fa-github"></i></a><a aria_label="Twitter" href="https://x.com/Sahil_Kishwar24" target="_blank"><i class="fa-brands fa-twitter"></i></a><a aria_label="Instagram" href="https://instagram.com/sahilkishwar" target="_blank"><i class="fa-brands fa-instagram"></i></a></div></footer>
@@ -1596,5 +1817,35 @@
       console.warn('particles.js not loaded, background animation disabled');
     }
   </script>
-</body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const taglineText = "Code, Creativity & Clean Architecture";
+  const typewriterTagline = document.getElementById('typewriter-tagline');
+  let taglineIndex = 0;
+  let deleting = false;
+
+  function typeTagline() {
+    if (!deleting) {
+      if (taglineIndex <= taglineText.length) {
+        typewriterTagline.textContent = taglineText.slice(0, taglineIndex);
+        taglineIndex++;
+        setTimeout(typeTagline, 100);
+      } else {
+        deleting = true;
+        setTimeout(typeTagline, 1500); // pause before deleting
+      }
+    } else {
+      if (taglineIndex >= 0) {
+        typewriterTagline.textContent = taglineText.slice(0, taglineIndex);
+        taglineIndex--;
+        setTimeout(typeTagline, 50);
+      } else {
+        deleting = false;
+        setTimeout(typeTagline, 500); // pause before typing again
+      }
+    }
+  }
+  typeTagline();
+});
+</script></body>
 </html>

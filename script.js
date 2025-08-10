@@ -137,7 +137,8 @@
           console.warn('EmailJS not loaded, form submission disabled');
           form.addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('EmailJS is not available. Please contact me directly at sahilkishwar2003@gmail.com.');
+            alert('alert("EmailJS is not available. Please contact me directly at shaiksahilkishwar24@gmail.com.");
+');
           });
         }
       }

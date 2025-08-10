@@ -1224,7 +1224,290 @@
   height: 36px !important;
 }
 </style>
-</head>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet"/><style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    h1, h2, h3 {
+        font-weight: 700;
+    }
+    </style><style>
+.hero {
+    background: linear-gradient(135deg, #6C63FF, #00BFA6);
+    padding: 60px 20px;
+    text-align: center;
+    color: white;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style><style>
+@media (max-width:768px) {
+    h1 { font-size: 2rem !important; }
+    .hero { padding: 40px 10px; }
+    section { padding: 20px; }
+}
+</style><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/><style>
+section h2 {
+    text-align: left !important;
+    margin-bottom: 20px;
+}
+</style><style>
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.contact-info {
+  background: transparent;
+  padding: 1rem;
+}
+
+.contact-info .contact-item {
+  color: var(--secondary);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1rem;
+}
+
+.contact-info .contact-item i {
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+.contact-form-card {
+  background: rgba(0,0,0,0.6);
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.contact-form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form-card label {
+  font-weight: bold;
+  color: white;
+}
+
+.contact-form-card input,
+.contact-form-card textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.8rem;
+  color: white;
+  font-size: 1rem;
+}
+
+.contact-form-card input:focus,
+.contact-form-card textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style><style>
+.contact-form-card {
+  background: rgba(0,0,0,0.6);
+  padding: 1.5rem;
+  border-radius: 12px;
+  max-width: 500px;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr auto; /* left side flexible, right side form auto width */
+  gap: 2rem;
+  align-items: flex-start;
+}
+@media screen and (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-form-card {
+    max-width: 100%;
+  }
+}
+</style><style>
+/* Contact section attractive alignment */
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.contact-info {
+  flex: 1 1 250px;
+  max-width: 350px;
+}
+
+.contact-form-card {
+  flex: 1 1 350px;
+  max-width: 450px;
+  background: rgba(0,0,0,0.6);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.contact-info h3 {
+  margin-bottom: 1rem;
+}
+
+.contact-info .contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  color: var(--secondary);
+}
+
+.contact-info .contact-item i {
+  color: var(--primary);
+  font-size: 1.3rem;
+}
+
+.contact-form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form-card input,
+.contact-form-card textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.8rem;
+  color: white;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.contact-form-card input:focus,
+.contact-form-card textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.contact-form-card button {
+  align-self: flex-start;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .contact-form-card, .contact-info {
+    max-width: 100%;
+  }
+}
+</style><style>
+/* Gradient border and subtle animations */
+.contact-form-card {
+  position: relative;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.contact-form-card::before {
+  content: "";
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--highlight));
+  z-index: -1;
+}
+
+.contact-info .contact-item {
+  transition: transform 0.3s, color 0.3s;
+}
+
+.contact-info .contact-item:hover {
+  transform: translateX(5px);
+  color: var(--primary);
+}
+
+.contact-info .contact-item i {
+  transition: transform 0.3s, color 0.3s;
+}
+
+.contact-info .contact-item:hover i {
+  transform: scale(1.2);
+  color: var(--highlight);
+}
+
+.contact-form-card input,
+.contact-form-card textarea {
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.contact-form-card input:focus,
+.contact-form-card textarea:focus {
+  box-shadow: 0 0 10px rgba(127, 90, 240, 0.5);
+  transform: scale(1.01);
+}
+
+.contact-form-card button {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-form-card button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(63, 185, 80, 0.3);
+}
+</style><style>
+.contact-form-card {
+  max-width: 400px; /* reduced width */
+}
+@media screen and (max-width: 768px) {
+  .contact-form-card {
+    max-width: 100%;
+  }
+}
+</style><style>
+.contact-form-card {
+  max-width: 380px; /* even smaller width */
+}
+
+.contact-form-card input,
+.contact-form-card textarea {
+  padding: 0.5rem; /* reduce padding */
+  font-size: 0.9rem;
+}
+
+.contact-form-card textarea {
+  min-height: 80px; /* reduce height */
+  resize: vertical;
+}
+
+.contact-form-card form {
+  gap: 0.6rem; /* reduce gap between fields */
+}
+
+@media screen and (max-width: 768px) {
+  .contact-form-card {
+    max-width: 100%;
+  }
+}
+</style></head>
 <body>
 <div class="sparkle-cursor">
 <div class="blink-dot"></div>
@@ -1246,12 +1529,12 @@
 <a href="#contact">Contact</a>
 </div>
 </nav>
-<section id="hero">
+<section data-aos="fade-up" data-aos-delay="0" id="hero">
 <div class="floating-shape shape-1"></div>
 <div class="floating-shape shape-2"></div>
 <div class="floating-shape shape-3"></div>
 <div class="hero-content" data-aos="fade-up">
-<h1 id="hero-name" style="background: linear-gradient(90deg, coral, dodgerblue, #FF69B4, #8A2BE2, #FF8C00, #228B22, #FF4500); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;">
+<h1 id="hero-name" style="background: linear-gradient(90deg, #cc2366, #6C63FF, #3fb950); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold; font-size: 3rem; animation: fadeIn 2s ease-in-out;">
 <span id="typewriter-name"></span>
 </h1><p id="typewriter-tagline" style="color:white; font-size:1.2rem; margin-top:0.5rem;"></p>
 <div class="hero-buttons">
@@ -1261,18 +1544,12 @@
 </div>
 </div>
 </section>
-<section class="container" data-aos="fade-up" id="about">
-<h2 style="color:coral;">About Me</h2>
-<div class="card">
-<p>Hello! I'm Shaik Sahil Kishwar, a creative and detail-oriented Full Stack Web Developer. I specialize in building dynamic, responsive, and user-friendly web applications using modern technologies across both frontend and backend.</p>
-<p>My expertise spans HTML, CSS, JavaScript, React, and AOS for stunning interfaces, as well as Java, Spring Boot, REST APIs, and MySQL for robust server-side solutions. I love transforming ideas into seamless digital experiences that delight users and drive results.</p>
-<p>With hands-on experience in real-world projects and a passion for clean code, I thrive in collaborative environments and enjoy solving complex problems. I believe in continuous learning and staying updated with the latest trends in web development.</p>
-<p>Beyond coding, I enjoy exploring new frameworks, contributing to open source, and sharing knowledge with the developer community. Let's build something amazing together!</p>
-<a aria-label="Hire Shaik Sahil Kishwar" class="btn" href="#contact">Hire Me</a>
-</div>
+<section class="container" data-aos="fade-up" data-aos-delay="100" id="about">
+<h2 style="color: #6C63FF;margin-bottom:20px">About Me</h2>
+<div class="card"><p>I’m a creative Full Stack Web Developer passionate about crafting responsive, user-focused web applications.</p><ul><li>Proficient in HTML, CSS, JavaScript, React, Java, Spring Boot, REST APIs, and MySQL</li><li>Experienced in building scalable, maintainable applications</li><li>Committed to clean code and continuous learning</li></ul></div>
 </section>
-<section class="container" data-aos="fade-up" id="experience">
-<h2 style="color:dodgerblue;">Experience</h2>
+<section class="container" data-aos="fade-up" data-aos-delay="100" id="experience">
+<h2 style="color: #00BFA6;margin-bottom:20px">Experience</h2>
 <div class="card">
 <ul style="list-style:none;padding-left:0;">
 <li style="margin-bottom:1.5rem; display:flex; align-items:flex-start; gap:0.7rem;">
@@ -1301,8 +1578,8 @@
 </ul>
 </div>
 </section>
-<section class="container" data-aos="fade-up" id="skills">
-<h2 style="color:#FF69B4;">Skills</h2>
+<section class="container" data-aos="fade-up" data-aos-delay="100" id="skills">
+<h2 style="color: #FF6F61;margin-bottom:20px">Skills</h2>
 <div class="grid">
 <div class="card">
 <h3 style="color:#00FFFF;">Frontend Development</h3>
@@ -1340,8 +1617,8 @@
 </div>
 </div>
 </section>
-<section class="container" data-aos="fade-up" id="education">
-<h2 style="color:#8A2BE2;">Education</h2>
+<section class="container" data-aos="fade-up" data-aos-delay="100" id="education">
+<h2 style="color: #FFA500;margin-bottom:20px">Education</h2>
 <div class="timeline">
 <div class="timeline-item">
 <div class="timeline-content">
@@ -1366,8 +1643,8 @@
 </div>
 </div>
 </section>
-<section class="container" data-aos="fade-up" id="projects">
-<h2 style="color:#FF8C00;">Projects</h2>
+<section class="container" data-aos="fade-up" data-aos-delay="100" id="projects">
+<h2 style="color: #FF8C42;margin-bottom:20px">Projects</h2>
 <div class="grid">
 <div class="card">
 <h3 style="color:#FFA500;">Shopping Mall Management System</h3>
@@ -1422,8 +1699,8 @@
 </div>
 </div>
 </section>
-<section class="container" data-aos="fade-up" id="certifications">
-<h2 style="color:#228B22;">Certifications</h2>
+<section class="container" data-aos="fade-up" data-aos-delay="100" id="certifications">
+<h2 style="color: #1E90FF;margin-bottom:20px">Certifications</h2>
 <div class="grid">
 <div class="card">
 <div class="certification-header">
@@ -1471,31 +1748,36 @@
 </div>
 </div>
 </section>
-<section class="container" data-aos="fade-up" id="contact">
-<h2 style="color:#FF4500;">Contact Me</h2>
-<div class="contact-separate-grid">
-<div class="card contact-form-card" style="width:100%;">
-<form class="contact-modern-form" id="contact-form">
-<h3 style="margin-bottom: 1.2rem; color: var(--primary); display:flex; align-items: center; gap: 0.7rem;"> Let's Connect!</h3>
-<div class="contact-modern-field">
-<input name="from_name" placeholder="Your Name" required="" type="text"/>
-</div>
-<div class="contact-modern-field">
-<input name="from_email" placeholder="Your Email" required="" type="email"/>
-</div>
-<div class="contact-modern-field">
-<textarea name="message" placeholder="Your Message" required="" rows="5"></textarea>
-</div>
-<button aria-label="Send Contact Message" class="btn" type="submit">Send Message</button>
-</form>
-</div>
-</div>
-<div class="card contact-info-card">
-<h3 style="color: var(--primary); margin-bottom: 1.5rem;">Get in Touch</h3>
-<div class="contact-bar">
-<div class="contact-item"><i class="fas fa-envelope"></i> shaiksahilkishwar24@gmail.com</div>
+<section class="container" data-aos="fade-up" data-aos-delay="100" id="contact">
+<h2 style="color: #00BFA6; margin-bottom: 20px;">Get In Touch</h2>
+<div class="contact-grid">
+<!-- Left Side -->
+<div class="contact-info">
+<h3 style="color: var(--primary); margin-bottom: 1rem;">Contact Information</h3>
 <div class="contact-item"><i class="fas fa-phone"></i> +91 9346763113</div>
+<div class="contact-item"><i class="fas fa-envelope"></i> shaiksahilkishwar24@gmail.com</div>
 <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Anantapur, Andhra Pradesh, India</div>
+<h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">Follow Me</h3>
+<div class="social-links">
+<a href="https://www.linkedin.com/in/sahilkishwar" target="_blank"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/sahilkishwar" target="_blank"><i class="fab fa-github"></i></a>
+<a href="https://x.com/Sahil_Kishwar24" target="_blank"><i class="fab fa-twitter"></i></a>
+<a href="https://instagram.com/sahilkishwar" target="_blank"><i class="fab fa-instagram"></i></a>
+</div>
+</div>
+<!-- Right Side -->
+<div class="contact-form-card">
+<form class="contact-modern-form" id="contact-form">
+<label>Your Name</label>
+<input name="from_name" placeholder="Your Name" required="" type="text"/>
+<label>Your Email</label>
+<input name="from_email" placeholder="Your Email" required="" type="email"/>
+<label>Subject</label>
+<input name="subject" placeholder="Subject" required="" type="text"/>
+<label>Your Message</label>
+<textarea name="message" placeholder="Your Message" required="" rows="5"></textarea>
+<button class="btn" type="submit">Send Message</button>
+</form>
 </div>
 </div>
 </section>
@@ -1508,7 +1790,7 @@
 </a>
 <p>© 2025 Shaik Sahil Kishwar. All rights reserved.</p>
 <p>Made with <i class="fas fa-heart" style="color: var(--accent);"></i> and <i class="fas fa-code"></i></p>
-<div class="social-links"><a aria_label="LinkedIn" href="https://www.linkedin.com/in/sahilkishwar" target="_blank"><i class="fa-brands fa-linkedin"></i></a><a aria_label="GitHub" href="https://github.com/sahilkishwar" target="_blank"><i class="fa-brands fa-github"></i></a><a aria_label="Twitter" href="https://x.com/Sahil_Kishwar24" target="_blank"><i class="fa-brands fa-twitter"></i></a><a aria_label="Instagram" href="https://instagram.com/sahilkishwar" target="_blank"><i class="fa-brands fa-instagram"></i></a></div></footer>
+</footer>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script crossorigin="anonymous" integrity="sha256-AvB0QiuDEyEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERX3ZjQ==" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-ANsxP1r4J3OjjlY2Qgl1wts6JRTt0k0f2K4a9wG4e6f3m0f2k3l4j5g6h7i8j9k" src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -1821,31 +2103,25 @@
 document.addEventListener('DOMContentLoaded', function() {
   const taglineText = "Code, Creativity & Clean Architecture";
   const typewriterTagline = document.getElementById('typewriter-tagline');
-  let taglineIndex = 0;
+  let index = 0;
   let deleting = false;
 
-  function typeTagline() {
-    if (!deleting) {
-      if (taglineIndex <= taglineText.length) {
-        typewriterTagline.textContent = taglineText.slice(0, taglineIndex);
-        taglineIndex++;
-        setTimeout(typeTagline, 100);
-      } else {
-        deleting = true;
-        setTimeout(typeTagline, 1500); // pause before deleting
-      }
+  function typeEffect() {
+    if (!deleting && index <= taglineText.length) {
+      typewriterTagline.textContent = taglineText.slice(0, index);
+      index++;
+      setTimeout(typeEffect, 100);
+    } else if (deleting && index >= 0) {
+      typewriterTagline.textContent = taglineText.slice(0, index);
+      index--;
+      setTimeout(typeEffect, 50);
     } else {
-      if (taglineIndex >= 0) {
-        typewriterTagline.textContent = taglineText.slice(0, taglineIndex);
-        taglineIndex--;
-        setTimeout(typeTagline, 50);
-      } else {
-        deleting = false;
-        setTimeout(typeTagline, 500); // pause before typing again
-      }
+      deleting = !deleting;
+      setTimeout(typeEffect, 1000); // pause before switching
     }
   }
-  typeTagline();
+
+  typeEffect();
 });
-</script></body>
+</script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><script>AOS.init();</script></body>
 </html>

@@ -301,9 +301,32 @@
 </section>
 <footer>
 <a aria-label="Back to top" class="back-to-top" href="#hero">
-<svg width="24" height="24" viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
-  <path d="M388.7 64H437L295.5 239.6L448 448H348.4L252.8 322.1L145.7 448H96L244.6 260.4L96 64H197.6L285.5 178.3L388.7 64Z" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10" stroke="url(#gradient)" fill="none"/>
+  <polyline points="8 14 12 10 16 14" />
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7B2FF7" />
+      <stop offset="100%" stop-color="#00D4FF" />
+    </linearGradient>
+  </defs>
 </svg>
+<style>
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: transform 0.5s ease-in-out;
+}
+.back-to-top:hover {
+  transform: rotate(360deg);
+}
+</style>
+
+
 </a>
 <p>© 2025 Shaik Sahil Kishwar. All rights reserved.</p>
 <p>Made with <i class="fas fa-heart" style="color: var(--accent);"></i> and <i class="fas fa-code"></i></p>

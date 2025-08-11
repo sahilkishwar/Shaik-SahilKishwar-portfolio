@@ -320,25 +320,25 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
 });
 
 
-// Mobile-friendly particle adjustment
-if (window.innerWidth < 768) {
-    if (typeof pJSDom !== 'undefined' && pJSDom.length) {
-        var pJS = pJSDom[0].pJS;
-        pJS.particles.number.value = 40;
-        pJS.particles.number.density.value_area = 500;
-        pJS.fn.particlesRefresh();
-    }
-}
-window.addEventListener('resize', function() {
+// Ensure particles settings adjust after initialization
+function adjustParticlesForMobile() {
     if (typeof pJSDom !== 'undefined' && pJSDom.length) {
         var pJS = pJSDom[0].pJS;
         if (window.innerWidth < 768) {
             pJS.particles.number.value = 40;
             pJS.particles.number.density.value_area = 500;
+            pJS.particles.move.speed = 1.2; // slower for mobile
         } else {
             pJS.particles.number.value = 80;
             pJS.particles.number.density.value_area = 800;
+            pJS.particles.move.speed = 2.5; // default for desktop
         }
         pJS.fn.particlesRefresh();
     }
-});
+}
+
+// Run once after particles load
+window.addEventListener('load', adjustParticlesForMobile);
+
+// Run on resize
+window.addEventListener('resize', adjustParticlesForMobile);

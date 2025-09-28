@@ -1570,13 +1570,17 @@ nav a:hover, nav li:hover, .navbar a:hover {
 </section>
 <section class="container" data-aos="fade-up" data-aos-delay="100" id="about">
 <h2 style="color: #6C63FF;margin-bottom:20px">About Me</h2>
-<div class="card"><p>Hello! I’m Shaik Sahil Kishwar, an aspiring Full Stack Web Developer with a strong interest in creating impactful digital solutions. I enjoy blending creativity with problem-solving — building applications that are not only functional but also user-friendly and visually appealing.</p><br>
-<p>I have hands-on experience with HTML, CSS, JavaScript, React, Spring Boot, REST APIs, and MySQL, and I am always eager to explore new technologies that can make development more efficient and enjoyable.During my projects and training, I learned the importance of writing clean code, collaborating in teams, and thinking from the user’s perspective to deliver the best experience possible.</p> <br>
-<p>Beyond coding, I’m passionate about continuous learning and growth. I believe in setting goals, staying adaptable, and pushing myself to improve every day. My aim is to grow into a developer who can contribute meaningfully to both innovative projects and the people I work with.</p>
-<p>When I’m not coding, you’ll often find me exploring new tools, learning about design trends, or working on small creative projects that sharpen my skills.</p><br>
-<p></p>I’m excited about opportunities where I can contribute, learn, and grow — turning ideas into digital realities.</p></ul></div>
+<div class="card"><p>Hello! I’m Shaik Sahil Kishwar, an aspiring Full Stack Web Developer with a strong interest in creating impactful digital solutions. I enjoy blending creativity with problem-solving — building applications that are not only functional but also user-friendly and visually appealing.
+
+I have hands-on experience with HTML, CSS, JavaScript, React, Spring Boot, REST APIs, and MySQL, and I am always eager to explore new technologies that can make development more efficient and enjoyable.</p> During my projects and training, I learned the importance of writing clean code, collaborating in teams, and thinking from the user’s perspective to deliver the best experience possible.
+
+Beyond coding, I’m passionate about continuous learning and growth. I believe in setting goals, staying adaptable, and pushing myself to improve every day.<p> My aim is to grow into a developer who can contribute meaningfully to both innovative projects and the people I work with.
+
+When I’m not coding, you’ll often find me exploring new tools, learning about design trends, or working on small creative projects that sharpen my skills.
+
+I’m excited about opportunities where I can contribute, learn, and grow — turning ideas into digital realities.</p></ul></div>
 </section>
-<section class="container" data-aos="fade-up" data-aos-delay="100" id="experience"><br>
+<section class="container" data-aos="fade-up" data-aos-delay="100" id="experience">
 <h2 style="color: #00BFA6;margin-bottom:20px">Experience</h2>
 <div class="card">
 <ul style="list-style:none;padding-left:0;">
@@ -1804,6 +1808,27 @@ nav a:hover, nav li:hover, .navbar a:hover {
 <textarea name="message" placeholder="Your Message" required="" rows="5"></textarea>
 <button class="btn" type="submit">Send Message</button>
 </form>
+</div>
+
+<!-- Thank-you modal styles and markup -->
+<style>
+  .thank-modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 20000; }
+  .thank-modal.show { display: flex; }
+  .thank-modal .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+  .thank-modal .box { position: relative; z-index: 1; background: rgba(20,20,30,0.95); color: #fff; padding: 20px; border-radius: 12px; max-width: 420px; width: calc(100% - 40px); text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.6); }
+  .thank-modal .box h3 { margin: 0 0 8px 0; color: var(--primary); }
+  .thank-modal .box p { margin: 0 0 12px 0; }
+  .thank-modal .box .ok { margin-top: 8px; }
+</style>
+
+<div class="thank-modal" id="thank-modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="overlay" data-close></div>
+  <div class="box" role="document">
+    <h3>Thank you!</h3>
+    <p>Your message has been sent — I'll get back to you soon.</p>
+    <button class="btn ok" id="thank-ok" type="button">OK</button>
+  </div>
+</div>
 </div>
 </div>
 </section>
@@ -2117,3 +2142,39 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><script>AOS.init();</script></body>
 </html>
+
+<script>
+// Intercept contact form submit, POST using fetch and show thank-you modal
+(function(){
+  const form = document.getElementById('contact-form');
+  const modal = document.getElementById('thank-modal');
+  const ok = document.getElementById('thank-ok');
+  const overlay = modal && modal.querySelector('.overlay');
+
+  function openModal(){ if(modal){ modal.classList.add('show'); modal.setAttribute('aria-hidden','false'); }}
+  function closeModal(){ if(modal){ modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); }}
+
+  if(!form) return;
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const url = form.getAttribute('action');
+    const data = new FormData(form);
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const origText = submitBtn ? submitBtn.textContent : '';
+    if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
+
+    fetch(url, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+      .then(res => {
+        if(res.ok){ form.reset(); openModal(); }
+        else { return res.json().then(j=>{ throw new Error(j.error || 'Send failed'); }); }
+      })
+      .catch(err=>{ console.error(err); alert('Could not send message. Please try again later.'); })
+      .finally(()=>{ if(submitBtn){ submitBtn.disabled = false; submitBtn.textContent = origText; } });
+  });
+
+  if(ok) ok.addEventListener('click', closeModal);
+  if(overlay) overlay.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+})();
+</script>
